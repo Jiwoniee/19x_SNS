@@ -3,19 +3,19 @@
 
 # 2. 모델 속성 표
 USER 모델
-id | name | phone | age
--- | ---- | ----- | ---
-integer | string | integer | integer
+|id | name | phone | age|
+|-- | ---- | ----- | ---|
+|integer | string | integer | integer|
 
 POST 모델
-id | title | content | 
--- | ----- | ------- |
-integer | string | text
+|id | title | content | 
+|-- | ----- | ------- |
+|integer | string | text|
 
 COMMENT 모델
-id | comment 
--- | -------  
-integer | text
+|id | comment|
+|-- | -------|
+|integer | text|
 
 # 3. 각각 모델 코드
 USER모델 <br>
