@@ -1,3 +1,6 @@
 class Comment < ApplicationRecord
-  belongs_to :post
+  belongs_to :users
+  belongs_to :posts
+  
+  validates :content, length: {maximum: 100}
 end

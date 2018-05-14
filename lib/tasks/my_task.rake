@@ -1,48 +1,43 @@
 namespace :my_task do
-  desc "TODO"
   task test1: :environment do
-    puts rand(20..29).sample(20)
-  end
-
-  desc "TODO"
-  task test2: :environment do
-    puts rand(30..39).sample(10)
-  end
-
-  desc "TODO"
-  task test3: :environment do
-    puts rand(40..49).sample(5)
-  end
-
-  desc "TODO"
-  task test4: :environment do
-    puts rand(50..59).sample(5)
-  end
-
-  def twenty_group
-    My_task.create test1
-    User.create name
-    User.create phone
+    
+    (1..20).each do |u|
+      User.create name: Faker::Name.name, phone: Faker::Phone.cell_phone, age: rand(20..29)
+    end
+    
+    (1..10).each do |u|
+      User.create name: Faker::Name.name, phone: Faker::Phone.cell_phone, age: rand(30..39)
+    end
+    
+    (1..5).each do |u|
+      User.create name: Faker::Name.name, phone: Faker::Phone.cell_phone, age: rand(40..49)
+      comment_40
+    end
+    
+    (1..5).each do |u|
+      User.create name: Faker::Name.name, phone: Faker::Phone.cell_phone, age: rand(50..59)
+      posting_50
+    end
   end
   
-  def thirty_group
-    My_task.create test2
-    User.create name
-    User.create phone
+  def posting_50
+    user_id_pick = User.where(age: 50..59)
+    for i in 1..5
+      Post.create title: Faker::Types.string, content: Faker::OnePiece.quote,
+      user_id: user_id_pick[i]
+    end
   end
   
-  def forty_group
-    My_task.create test3
-    User.create name
-    User.create phone
-    Comment.create comments
+  def comment_40
+    user_id_pick = User.where(age: 40..49)
+    post_index = Post.pluck(:post_id)
+    for i in 1..5
+      Comment.create content: Faker::OnePiece.quote, user_id: user_id_pick[i],
+                     post_id: post_index[0]
+      
+      Comment.create content: Faker::OnePiece.quote, user_id: user_id_pick[i],
+                     post_id: post_index[0]
+    end
   end
-  
-  def fifty_group
-    My_task.create test4
-    User.create name
-    User.create phone
-    Post.create posts
-  end
-  
+
 end
