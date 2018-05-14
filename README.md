@@ -2,17 +2,17 @@
 조건에 맞는 성인용 SNS를 구현합니다.
 
 # 2. 모델 속성 표
-USER 모델
+USER 모델<br>
 |id | name | phone | age|
 |-- | ---- | ----- | ---|
 |integer | string | integer | integer|
 
-POST 모델
+POST 모델<br>
 |id | title | content | 
 |-- | ----- | ------- |
 |integer | string | text|
 
-COMMENT 모델
+COMMENT 모델<br>
 |id | comment|
 |-- | -------|
 |integer | text|
